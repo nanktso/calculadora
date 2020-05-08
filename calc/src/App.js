@@ -4,33 +4,31 @@ import './App.css';
 
 function App() {
 
-  let [num1,setnum1] = useState("")
-  let [num2,setnum2] = useState("")
-  let [res,setRes] = useState([])
+  let [num1,setnum1] = useState('')
+  let [num2,setnum2] = useState('')
+  let [res,setRes] = useState(0)
 
    const HandleClick = (e) =>{
       
     var idButton = "";
-      idButton = e.target.id;
-
+    idButton = e.target.id;
+    let aux = 0;
       switch (idButton){
         case 'soma' :
-          res= num1 + num2;
+          aux= parseFloat(num1) + parseFloat(num2);
           break;
         case 'sub' :
-          res= num1 - num2;
+          aux= num1 - num2;
           break;
         case 'mult' :
-          res= num1*num2;
+          aux= num1*num2;
           break;
         case 'div' :
-          res= num1/num2;
+          aux= num1/num2;
           break;
         }
 
-  setRes(res.concat([{
-    resultado:res
-  }]))
+  setRes(aux)
 
   setnum1('')
   setnum2('')
@@ -41,19 +39,19 @@ function App() {
 
   var idButton = "";
   idButton = e.target.id;
-
+  let aux = 0;
   switch (idButton){
     case 'soma' :
-      res= num1 + num2;
+      aux= parseFloat(num1) + parseFloat(num2);
       break;
     case 'sub' :
-      res= num1 - num2;
+      aux= parseFloat(num1) - parseFloat(num2);
       break;
     case 'mult' :
-      res= num1*num2;
+      aux= parseFloat(num1)*parseFloat(num2);
       break;
     case 'div' :
-      res= num1/num2;
+      aux= parseFloat(num1)/parseFloat(num2);
       break;
 
       setnum1('')
@@ -61,9 +59,7 @@ function App() {
       e.preventDefault();
     }
 
-setRes(res.concat([{
-res:res
-}])) 
+setRes(aux) 
    
  }
 
@@ -103,10 +99,10 @@ res:res
           <h2>Resultado:</h2>
           {
 
-            [{res: 2}].map(item =>(  
+            
           <p>
-            {item.res}                    
-          </p>))
+            {res}                    
+          </p>
 
           }         
         </div>
